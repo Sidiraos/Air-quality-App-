@@ -1,0 +1,111 @@
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: linear-gradient(45deg, #4ba0d9, #6dd5fa, #fff);
+	font-family: 'Inter', sans-serif;
+	min-height: 100vh;
+	opacity: 0;
+	animation: fadeIn 1000ms ease-out forwards;
+}
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+h1 {
+	text-shadow: 1px 1px 0px #333, 2px 2px 0px #3a3a3a, 3px 3px 0px #575757,
+		4px 4px 0px #6b6b6b;
+	font-family: 'roboto';
+}
+.info {
+	max-width: 500px;
+	box-shadow: 1px 1px 10px #120e0e;
+	border-radius: 5px;
+	min-height: 200px;
+	margin: auto;
+	background-color: #e4e4e4;
+	margin-top: 50px;
+	position: relative;
+}
+.loader {
+	visibility: hidden;
+	opacity: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: inherit;
+	border-radius: 5px;
+	z-index: 1000;
+	top: 0;
+	transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+.loader img {
+	width: 75px;
+}
+.loader.active {
+	opacity: 1;
+	visibility: visible;
+}
+.loader.active img {
+	animation: loader 2000ms linear infinite;
+}
+@keyframes loader {
+	50% {
+		transform: rotate(360deg);
+	}
+}
+.emojiImg {
+	max-width: 75px;
+	filter: drop-shadow(1px 1px 2px rgba(16, 15, 15, 0.8));
+}
+th,
+td {
+	border: 1px solid #000000;
+}
+#scaleBar {
+	min-height: 20px;
+}
+.pollutionScaleIndex {
+	height: 10px;
+	width: 50px;
+}
+.pollutionScaleIndex:not(:nth-child(6)) {
+	border-right: 2px solid #fff;
+}
+.pollutionScaleIndex:nth-child(1) {
+	background-color: green;
+}
+.pollutionScaleIndex:nth-child(2) {
+	background-color: #d7d703;
+}
+.pollutionScaleIndex:nth-child(3) {
+	background-color: orange;
+}
+.pollutionScaleIndex:nth-child(4) {
+	background-color: red;
+}
+.pollutionScaleIndex:nth-child(5) {
+	background-color: purple;
+	flex-grow: 2;
+}
+.pollutionScaleIndex:nth-child(6) {
+	background-color: maroon;
+	flex-grow: 4;
+}
+
+#location-pointer {
+	transform: rotate(180deg);
+	margin-top: 16px;
+	width: 30px;
+	left: -15px;
+	position: absolute;
+}
